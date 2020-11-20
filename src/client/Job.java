@@ -46,16 +46,5 @@ public class Job {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-
-	
-	
+		
 }
-
-/*
-static incrmented Job has 
-ID enum A or B (private static long lastCardID =0L;)
-type
-clientID id of client
-boolean isFinished
-*/
