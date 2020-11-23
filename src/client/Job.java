@@ -7,7 +7,8 @@ public class Job {
 	private Integer clientID;
 	private boolean isFinished;
 	
-	private Job(JobType jobType, /*maybe dont pass jobID in*/ Integer jobID, Integer clientID) {
+	//penina made this public and extended the comment
+	public Job(JobType jobType, /*maybe dont pass jobID in Integer jobID,*/ Integer clientID) {
 		this.jobType = jobType;
 		Job.jobID = ++jobID;
 		//this.jobID = ++jobID;
@@ -22,7 +23,7 @@ public class Job {
 		this.isFinished = isFinished;
 	}
 
-	private JobType getJobType() {
+	public JobType getJobType() {//penina made this public
 		return jobType;
 	}
 
