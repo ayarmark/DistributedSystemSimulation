@@ -15,7 +15,8 @@ public class SharedMemory
 		numBJobsSlaveB=0;
 	}
 
-	public int getNumAJobsSlaveA() {
+	public int getNumAJobsSlaveA() 
+	{
 		return numAJobsSlaveA;
 	}
 
