@@ -5,7 +5,6 @@ public class Testing {
 		System.out.println("I'm changing something");
 
 		System.out.println("Aidel's change");
-=======
 
 		System.out.println("testing....");
 
