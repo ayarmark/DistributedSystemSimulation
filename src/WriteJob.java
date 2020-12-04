@@ -3,6 +3,7 @@ import java.net.*;
 import java.io.*;
 import java.util.*;
 import client.Job;
+import client.JobType;
 
 
 
@@ -14,6 +15,15 @@ public class WriteJob extends Thread
 	Job currJob;
 	boolean hasNewJob = false;
 	boolean prevJobSent = true;
+	String [] args = new String[] { "30121" };
+	
+	//giving error not sure why
+	/*if (args.length != 1) {
+		System.err.println("Usage: java EchoServer <port number>");
+		System.exit(1);
+	}*/
+	
+	int portNumber = Integer.parseInt(args[0]);
 	
 	
 	public WriteJob(String hostNum, int socketNum)
@@ -26,11 +36,13 @@ public class WriteJob extends Thread
 	{
 		try
 		{
-			ServerSocket serverSocket = new ServerSocket(socketNum);
+			ServerSocket serverSocket = new ServerSocket(portNumber);
 			Socket clientSocket = serverSocket.accept();
 		    ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
+		    job = new Job(JobType.B, 2);
+		    out.writeObject(job);
 		    
-		    while(this.isAlive())
+		    /*while(this.isAlive())
 		    {
 		    	if(hasNewJob == true)
 		    	{
@@ -38,7 +50,7 @@ public class WriteJob extends Thread
 		    		hasNewJob = false;
 		    		prevJobSent = true;
 		    	}
-		    }
+		    }*/
 		    	
 		}
 		
