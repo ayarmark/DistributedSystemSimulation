@@ -1,6 +1,6 @@
 package client;
-
-public class Job {
+import java.io.*;
+public class Job implements Serializable {
 
 	private JobType jobType;
 	private static Integer jobID = 0;

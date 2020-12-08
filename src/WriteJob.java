@@ -39,6 +39,8 @@ public class WriteJob extends Thread
 			ServerSocket serverSocket = new ServerSocket(portNumber);
 			Socket clientSocket = serverSocket.accept();
 		    ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
+		    
+		    //ObjectWriter responseWriter1 = new ObjectWriter(clientSocket.getOutputStream(), true);
 		    job = new Job(JobType.B, 2);
 		    out.writeObject(job);
 		    
@@ -61,9 +63,7 @@ public class WriteJob extends Thread
             System.err.println("Couldn't get I/O for the connection to " +
                 hostNum);
             System.exit(1);
-        } 
-
-				
+        } 		
 	}
 	
 	public void sendJob(Job job)

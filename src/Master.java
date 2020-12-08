@@ -10,7 +10,7 @@ public class Master
 	public static void main(String[] args)
 	{
 		Job job = new Job(JobType.A, 1);
-		Socket socket = new Socket();
+		//Socket socket = new Socket();
 		WriteJob write  = new WriteJob("127.0.0.1", 123);
 		write.start();
 		write.run();

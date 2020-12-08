@@ -20,6 +20,7 @@ public class Client
 
 	     
 	     ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
+	     ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
 	     try {
 			Job returnedJob = (Job)in.readObject();
 			System.out.println(returnedJob.getJobType());
