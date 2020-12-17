@@ -6,7 +6,7 @@ public class Job implements Serializable {
 	private static Integer jobID = 0;
 	private Integer clientID;
 	private boolean isFinished;
-	//comment
+	//comments
 	//penina made this public and extended the comment
 	public Job(JobType jobType, /*maybe dont pass jobID in Integer jobID,*/ Integer clientID) {
 		this.jobType = jobType;
