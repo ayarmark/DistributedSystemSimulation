@@ -37,6 +37,7 @@ public class WriteJob extends Thread
 		try
 		{
 			ServerSocket serverSocket = new ServerSocket(portNumber);
+			
 			Socket clientSocket = serverSocket.accept();
 		    ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
 		    
