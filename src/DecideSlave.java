@@ -2,7 +2,7 @@ import client.*;//should we really import *?
 
 public class DecideSlave {
 	public static void main(String[] args) {
-		//will receive somehow
+		//will receive somehow, we still need to work on it...
 		SharedMemory sharedMemory = new SharedMemory();
 		Job job = new Job(JobType.A, 1);
 		
