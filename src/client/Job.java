@@ -1,14 +1,16 @@
 package client;
 
-public class Job {
+import java.io.Serializable;
+
+public class Job implements Serializable{
 
 	private JobType jobType;
 	private static Integer jobID = 0;
-	private Integer clientID;
+	private String clientID;
 	private boolean isFinished;
 	
 	//penina made this public and extended the comment
-	public Job(JobType jobType, /*maybe dont pass jobID in Integer jobID,*/ Integer clientID) {
+	public Job(JobType jobType, String clientID) {
 		this.jobType = jobType;
 		Job.jobID = ++jobID;
 		//this.jobID = ++jobID;
@@ -31,7 +33,7 @@ public class Job {
 		return jobID;
 	}
 
-	private Integer getClientID() {
+	private String getClientID() {
 		return clientID;
 	}
 

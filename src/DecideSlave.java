@@ -4,7 +4,7 @@ public class DecideSlave {
 	public static void main(String[] args) {
 		//will receive somehow
 		SharedMemory sharedMemory = new SharedMemory();
-		Job job = new Job(JobType.A, 1);
+		Job job = new Job(JobType.A, "1");
 		
 		int aBusy = (sharedMemory.getNumAJobsSlaveA()*2)+(sharedMemory.getNumBJobsSlaveA()*10);
 		int bBusy = (sharedMemory.getNumBJobsSlaveB()*2)+(sharedMemory.getNumAJobsSlaveB()*10);

@@ -3,8 +3,7 @@ import java.io.*;
 import java.net.*;
 public class Client 
 {
-	public static void main(String [] args) throws UnknownHostException, IOException
-	{
+	public static void main(String [] args) throws UnknownHostException, IOException {
 		args = new String[] {"127.0.0.1", "30121"};
     	
         if (args.length != 2) {
@@ -16,8 +15,9 @@ public class Client
 		 String hostName = args[0];
 	     int portNumber = Integer.parseInt(args[1]);
 	     //System.out.println(portNumber);
+	     //Socket clientSocket = new Socket("127.0.0.1", 30121); 
 	     Socket clientSocket = new Socket(hostName, portNumber);
-
+	     System.out.println(clientSocket.getInetAddress());
 	     
 	     ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
 	     try {
@@ -27,5 +27,6 @@ public class Client
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	clientSocket.close();
 	}
 }

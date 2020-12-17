@@ -9,9 +9,10 @@ public class Master
 {
 	public static void main(String[] args)
 	{
-		Job job = new Job(JobType.A, 1);
-		Socket socket = new Socket();
-		WriteJob write  = new WriteJob("127.0.0.1", 123);
+		Job job = new Job(JobType.A, "1");
+		//Socket socket = new Socket();
+		WriteJob write  = new WriteJob("127.0.0.1", 444);
+	//	WriteJob write = new WriteJob(30121);
 		write.start();
 		write.run();
 		write.sendJob(job);
