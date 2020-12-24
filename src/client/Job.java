@@ -6,11 +6,11 @@ public class Job implements Serializable{
 
 	private JobType jobType;
 	private static Integer jobID = 0;
-	private String clientID;
+	private Integer clientID;
 	private boolean isFinished;
 	
 	//penina made this public and extended the comment
-	public Job(JobType jobType, String clientID) {
+	public Job(JobType jobType, /*maybe dont pass jobID in Integer jobID,*/ Integer clientID) {
 		this.jobType = jobType;
 		Job.jobID = ++jobID;
 		//this.jobID = ++jobID;
@@ -33,7 +33,7 @@ public class Job implements Serializable{
 		return jobID;
 	}
 
-	private String getClientID() {
+	private Integer getClientID() {
 		return clientID;
 	}
 

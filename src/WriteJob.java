@@ -43,8 +43,8 @@ public class WriteJob  extends Thread implements java.io.Serializable {
 			//ServerSocket serverSocket = new ServerSocket(portNumber);
 			Socket clientSocket = serverSocket.accept();
 		    ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
-		    job = new Job(JobType.B, "2");
-		    String job = "testing";
+		    job = new Job(JobType.B, 2);
+		    //String job = "testing";
 		    out.writeObject(job);
 		    //out.
 		    /*while(this.isAlive())
@@ -68,8 +68,7 @@ public class WriteJob  extends Thread implements java.io.Serializable {
                 hostNum);
             System.exit(1);
         } 
-
-				
+	
 	}
 	
 	public void sendJob(Job job)
