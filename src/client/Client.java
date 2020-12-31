@@ -7,9 +7,6 @@ import java.util.Random;
 import write.WriteJob;
 public class Client 
 {
-<<<<<<< HEAD
-	public static void main(String [] args) throws UnknownHostException, IOException {
-=======
 	public static void main(String [] args) throws UnknownHostException, IOException
 	{
 		
