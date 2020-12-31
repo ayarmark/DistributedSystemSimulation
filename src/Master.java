@@ -39,5 +39,5 @@ public class Master
 		
 
 		//write.sendJob(job);
-
-}}
+	}
+}
