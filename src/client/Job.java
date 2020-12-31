@@ -1,12 +1,15 @@
 package client;
 
-public class Job {
+import java.io.Serializable;
+
+import java.io.*;
+public class Job implements Serializable {
 
 	private JobType jobType;
 	private static Integer jobID = 0;
 	private Integer clientID;
 	private boolean isFinished;
-	
+	//comments
 	//penina made this public and extended the comment
 	public Job(JobType jobType, /*maybe dont pass jobID in Integer jobID,*/ Integer clientID) {
 		this.jobType = jobType;

@@ -1,3 +1,4 @@
+package writeAndRead;
 import java.lang.Thread;
 import java.net.*;
 import java.io.*;
@@ -7,8 +8,7 @@ import client.JobType;
 
 
 
-public class WriteJob extends Thread
-{
+public class WriteJob  extends Thread implements java.io.Serializable {
 	String hostNum;
 	int socketNum;
 	Job job;
@@ -28,30 +28,22 @@ public class WriteJob extends Thread
 	
 	public WriteJob(String hostNum, int socketNum)
 	{
-		this.hostNum=hostNum;
-		this.socketNum=socketNum;
+		
+		this.hostNum = hostNum;
+		this.socketNum = socketNum;
+
 	}
 	
-	public void run()
-	{
-		try
-		{
-			ServerSocket serverSocket = new ServerSocket(portNumber);
+	public void run() {
+		try {
+		  ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]));
 			Socket clientSocket = serverSocket.accept();
 		    ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
 		    job = new Job(JobType.B, 2);
 		    out.writeObject(job);
-		    
-		    /*while(this.isAlive())
-		    {
-		    	if(hasNewJob == true)
-		    	{
-		    		out.writeObject(job);
-		    		hasNewJob = false;
-		    		prevJobSent = true;
-		    	}
-		    }*/
-		    	
+		
+		  serverSocket.close(); 	
+		
 		}
 		
 		catch (UnknownHostException e) {
@@ -62,8 +54,7 @@ public class WriteJob extends Thread
                 hostNum);
             System.exit(1);
         } 
-
-				
+	
 	}
 	
 	public void sendJob(Job job)
@@ -74,3 +65,6 @@ public class WriteJob extends Thread
 		prevJobSent = false;
 	}
 }
+
+
+
