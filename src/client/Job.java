@@ -1,14 +1,19 @@
 package client;
+<<<<<<< HEAD
 
 import java.io.Serializable;
 
 public class Job implements Serializable{
+=======
+import java.io.*;
+public class Job implements Serializable {
+>>>>>>> branch 'master' of https://github.com/ayarmark/MCON243FinalProject.git
 
 	private JobType jobType;
 	private static Integer jobID = 0;
 	private Integer clientID;
 	private boolean isFinished;
-	
+	//comments
 	//penina made this public and extended the comment
 	public Job(JobType jobType, /*maybe dont pass jobID in Integer jobID,*/ Integer clientID) {
 		this.jobType = jobType;
