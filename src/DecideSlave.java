@@ -2,15 +2,13 @@ import client.*;//should we really import *?
 
 public class DecideSlave {
 	public static void main(String[] args) {
-<<<<<<< HEAD
 		//will receive somehow
 		decideSlave();
 	}
 	
 	public static void decideSlave() {
-=======
+
 		//will receive somehow, we still need to work on it...
->>>>>>> branch 'master' of https://github.com/ayarmark/MCON243FinalProject.git
 		SharedMemory sharedMemory = new SharedMemory();
 		Job job = new Job(JobType.A, 1);
 		
