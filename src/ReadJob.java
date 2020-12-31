@@ -30,6 +30,7 @@ public class ReadJob {
 
 	public void run() {
 		try {
+			//comment
 			// look at how simple client accepts things
 			/*
 			 * BufferedReader responseReader= // stream to read text response from server
