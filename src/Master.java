@@ -10,12 +10,9 @@ import write.WriteJob;
 /**///added import write job
 public class Master 
 {
-<<<<<<< HEAD
-	public static void main(String[] args) throws UnknownHostException, IOException
-=======
-	public static void main(String[] args) throws InterruptedException
->>>>>>> branch 'master' of https://github.com/ayarmark/MCON243FinalProject.git
-	{
+
+	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException{
+
 		
 		/**///start here
 		Socket serverSocket = new Socket("127.0.0.1", 14725);
@@ -37,13 +34,10 @@ public class Master
 		WriteJob write  = new WriteJob("127.0.0.1", 123);
 		write.start();
 		write.run();
-<<<<<<< HEAD
+
 		write.sendJob(job);
 		
-		
-		
-=======
+
 		//write.sendJob(job);
->>>>>>> branch 'master' of https://github.com/ayarmark/MCON243FinalProject.git
-	}	
-}
+
+}}
