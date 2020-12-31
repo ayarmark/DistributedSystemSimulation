@@ -29,9 +29,14 @@ public class Master
 		
 		Job job = new Job(JobType.A, 1);
 		//Socket socket = new Socket();
+<<<<<<< HEAD
+		WriteJob write  = new WriteJob("127.0.0.1", 444);
+	//	WriteJob write = new WriteJob(30121);
+=======
 		
 		
 		WriteJob write  = new WriteJob("127.0.0.1", 123);
+>>>>>>> branch 'master' of https://github.com/ayarmark/MCON243FinalProject.git
 		write.start();
 		write.run();
 

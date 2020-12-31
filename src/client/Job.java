@@ -1,6 +1,13 @@
 package client;
+<<<<<<< HEAD
+
+import java.io.Serializable;
+
+public class Job implements Serializable{
+=======
 import java.io.*;
 public class Job implements Serializable {
+>>>>>>> branch 'master' of https://github.com/ayarmark/MCON243FinalProject.git
 
 	private JobType jobType;
 	private static Integer jobID = 0;

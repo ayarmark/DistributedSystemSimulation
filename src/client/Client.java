@@ -7,6 +7,9 @@ import java.util.Random;
 import write.WriteJob;
 public class Client 
 {
+<<<<<<< HEAD
+	public static void main(String [] args) throws UnknownHostException, IOException {
+=======
 	public static void main(String [] args) throws UnknownHostException, IOException
 	{
 		
@@ -45,6 +48,7 @@ public class Client
 	     
 	     /**///end here
 		
+>>>>>>> branch 'master' of https://github.com/ayarmark/MCON243FinalProject.git
 		args = new String[] {"127.0.0.1", "30121"};
     	
         if (args.length != 2) {
@@ -56,9 +60,14 @@ public class Client
 		 String hostName = args[0];
 	     int portNumber = Integer.parseInt(args[1]);
 	     //System.out.println(portNumber);
+	     //Socket clientSocket = new Socket("127.0.0.1", 30121); 
 	     Socket clientSocket = new Socket(hostName, portNumber);
+<<<<<<< HEAD
+	     System.out.println(clientSocket.getInetAddress());
+=======
 
 
+>>>>>>> branch 'master' of https://github.com/ayarmark/MCON243FinalProject.git
 	     
 	     ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
 	     /**///ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
@@ -69,7 +78,11 @@ public class Client
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
+	clientSocket.close();
+=======
 	     
 
+>>>>>>> branch 'master' of https://github.com/ayarmark/MCON243FinalProject.git
 	}
 }
