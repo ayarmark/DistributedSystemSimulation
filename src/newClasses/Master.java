@@ -20,6 +20,7 @@ public class Master
 		MasterFromClient1 masterFromClient1 = new MasterFromClient1();
 		masterFromClient1.start();
 		
+		
 	    //choose slave
 		SharedMemory sharedMemory = new SharedMemory();
 		Job job = new Job(JobType.A, 1);

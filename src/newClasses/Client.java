@@ -15,7 +15,8 @@ public class Client
 	public static void main(String [] args) throws UnknownHostException, IOException
 	{
 		//set ID? probably not like this
-		int clientID = 10;
+		/*int clientID = 10;
+		
 		
 		//create jobs
 		JobType jobType;
@@ -29,14 +30,14 @@ public class Client
     	 	}
     		System.out.println("Created request for job type " + jobType);
     		Job job = new Job(jobType, clientID);
-		}
+		}*/
 		
 		//send to master
 		Client1ToMaster client1ToMaster = new Client1ToMaster();
 		client1ToMaster.start();
 		
 		//receive from master - need to first wait
-		Client1FromMaster client1FromMaster = new Client1FromMaster();
-		client1FromMaster.start();
+		/*Client1FromMaster client1FromMaster = new Client1FromMaster();
+		client1FromMaster.start();*/
 	}
 }
