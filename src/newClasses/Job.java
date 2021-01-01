@@ -1,6 +1,6 @@
 package newClasses;
 import java.io.*;
-public class Job implements Serializable {
+public class Job implements Serializable, Comparable<Job>{
 
 	private JobType jobType;
 	private static Integer jobID = 0;
@@ -46,6 +46,11 @@ public class Job implements Serializable {
 		builder.append(isFinished);
 		builder.append("]");
 		return builder.toString();
+	}
+
+	@Override
+	public int compareTo(Job o) {
+		return jobID.compareTo(o.getJobID());
 	}
 		
 }

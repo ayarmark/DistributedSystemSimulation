@@ -6,9 +6,11 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import newClasses.Job;
+import newClasses.Master;
+import newClasses.SharedMemory;
 
 public class MasterFromClient1 extends Thread{
-
+	static SharedMemory sharedMemory = new SharedMemory();
 	public void run() {
 		
 		try {
@@ -18,6 +20,7 @@ public class MasterFromClient1 extends Thread{
 			Job returnedJob;
 			while((returnedJob = (Job)in.readObject()) != null) {
 				System.out.println("Received Job " + returnedJob.getJobType() + " from Client 1.");
+				sharedMemory.jobsToPerform.add(returnedJob);
 			}
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block

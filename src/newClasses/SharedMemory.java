@@ -1,5 +1,7 @@
 package newClasses;
 
+import java.util.ArrayList;
+import java.util.Queue;
 
 public class SharedMemory 
 {
@@ -7,6 +9,9 @@ public class SharedMemory
 	private int numBJobsSlaveA;
 	private int numAJobsSlaveB;
 	private int numBJobsSlaveB;
+	public ArrayList<Job> jobsToPerform;
+	ArrayList<Job> jobsToSendSlaveA;
+	ArrayList<Job> jobsToSendSlaveB;
 	
 	public SharedMemory()
 	{
@@ -14,6 +19,9 @@ public class SharedMemory
 		numBJobsSlaveA=0;
 		numAJobsSlaveB=0;
 		numBJobsSlaveB=0;
+		jobsToPerform = new ArrayList<Job>();
+		jobsToSendSlaveA = new ArrayList<Job>();
+		jobsToSendSlaveB = new ArrayList<Job>();
 	}
 
 	public int getNumAJobsSlaveA() 

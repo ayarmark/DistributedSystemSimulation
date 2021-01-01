@@ -31,9 +31,10 @@ public class Client1ToMaster extends Thread{
 		    	 	else {
 		    	 		jobType = JobType.B;
 		    	 	}
-		    		System.out.println("Created request for job type " + jobType);
+		    		System.out.println("Created request for job type " + jobType + ", sending to Master.");
 		    		Job job = new Job(jobType, clientID);
 		    		out.writeObject(job);
+		    		//System.out.println("Sent request for job type " + jobType);
 				}
 			}
 		}

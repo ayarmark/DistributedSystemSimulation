@@ -14,25 +14,7 @@ public class Client
 {
 	public static void main(String [] args) throws UnknownHostException, IOException
 	{
-		//set ID? probably not like this
-		/*int clientID = 10;
-		
-		
-		//create jobs
-		JobType jobType;
-	    Random rand = new Random();
-		for(int i=0; i<30; i++) {
-    	 	if(rand.nextInt(2) == 1) {
-    	 		jobType = JobType.A;
-    	 	}
-    	 	else {
-    	 		jobType = JobType.B;
-    	 	}
-    		System.out.println("Created request for job type " + jobType);
-    		Job job = new Job(jobType, clientID);
-		}*/
-		
-		//send to master
+		//sends 30 jobs to master
 		Client1ToMaster client1ToMaster = new Client1ToMaster();
 		client1ToMaster.start();
 		
