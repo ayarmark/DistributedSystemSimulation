@@ -34,7 +34,7 @@ public class Client
 		//send to master
 		Client1ToMaster client1ToMaster = new Client1ToMaster();
 		client1ToMaster.start();
-
+		
 		//receive from master - need to first wait
 		Client1FromMaster client1FromMaster = new Client1FromMaster();
 		client1FromMaster.start();
