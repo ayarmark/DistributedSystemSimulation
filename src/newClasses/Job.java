@@ -1,4 +1,4 @@
-package client;
+package newClasses;
 import java.io.*;
 public class Job implements Serializable {
 

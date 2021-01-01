@@ -1,16 +1,17 @@
-package client;
+package probablyGarbage;
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.Random;
+
+import client.Job;
 import writeAndRead.*;
 
 public class Client 
 {
-
-
 	public static void main(String [] args) throws UnknownHostException, IOException
 	{
+		/*
 	     int clientID = 10;//need to set
 	     
 	     JobType jobType;
@@ -30,13 +31,13 @@ public class Client
 	    		Job job = new Job(jobType, clientID);
 	    	    write.sendJob(job);
          }
-
+*/
 		
-		args = new String[] {"127.0.0.1", "30121"};
+		args = new String[] {"127.0.0.1", "30122"};
     	
-        if (args.length != 2) {
-            System.err.println(
-                "Usage: java EchoClient <host name> <port number>");
+        if (args.length != 2) 
+        {
+            System.err.println( "Usage: java EchoClient <host name> <port number>");
             System.exit(1);
         }
         
@@ -45,22 +46,20 @@ public class Client
 	     
 	     Socket clientSocket = new Socket(hostName, portNumber);
 
-	     System.out.println(clientSocket.getInetAddress());
-
-
-
-	     
 	     ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
-	     try {
+	     ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
+	     
+	     try 
+	     {
 			Job returnedJob = (Job)in.readObject();
 			System.out.println(returnedJob.getJobType());
-		} 
-	     catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
+	     } 
+	     catch (ClassNotFoundException | IOException e) 
+	     {
 			e.printStackTrace();
-		}
+	     }
 
-	clientSocket.close();
+	//clientSocket.close();
 
 	     
 

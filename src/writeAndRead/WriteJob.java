@@ -1,4 +1,6 @@
 package writeAndRead;
+
+
 import java.lang.Thread;
 import java.net.*;
 import java.io.*;
@@ -8,14 +10,15 @@ import client.JobType;
 
 
 
-public class WriteJob  extends Thread implements java.io.Serializable {
+public class WriteJob extends Thread 
+{
 	String hostNum;
 	int socketNum;
 	Job job;
 	Job currJob;
 	boolean hasNewJob = false;
 	boolean prevJobSent = true;
-	String [] args = new String[] { "30121" };
+	String [] args = new String[] { "30122" };
 	
 	//giving error not sure why
 	/*if (args.length != 1) {
@@ -28,22 +31,32 @@ public class WriteJob  extends Thread implements java.io.Serializable {
 	
 	public WriteJob(String hostNum, int socketNum)
 	{
-		
 		this.hostNum = hostNum;
 		this.socketNum = socketNum;
 
 	}
 	
 	public void run() {
-		try {
-		  ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]));
-			Socket clientSocket = serverSocket.accept();
-		    ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
-		    job = new Job(JobType.B, 2);
-		    out.writeObject(job);
-		
-		  serverSocket.close(); 	
-		
+		try
+		{
+			ServerSocket serverSocket = new ServerSocket(portNumber);
+			while(true)
+			{
+				Socket clientSocket = serverSocket.accept();
+			    ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
+			    job = new Job(JobType.B, 2);
+			    out.writeObject(job);
+			    
+			    /*while(this.isAlive())
+			    {
+			    	if(hasNewJob == true)
+			    	{
+			    		out.writeObject(job);
+			    		hasNewJob = false;
+			    		prevJobSent = true;
+			    	}
+			    }*/
+			}
 		}
 		
 		catch (UnknownHostException e) {
