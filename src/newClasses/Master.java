@@ -15,7 +15,7 @@ import newThreads.MasterToSlaveA;
 
 public class Master 
 {
-	static SharedMemory sharedMemory = new SharedMemory();
+	public static SharedMemory sharedMemory = new SharedMemory();
 	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException
 	{		
 		//receive job from client

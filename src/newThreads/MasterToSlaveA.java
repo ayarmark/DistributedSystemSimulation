@@ -8,29 +8,20 @@ import java.net.UnknownHostException;
 
 import newClasses.Job;
 import newClasses.JobType;
+import newClasses.Master;
 
 public class MasterToSlaveA extends Thread{
 	public void run() {
 		try
 		{
 			ServerSocket serverSocket = new ServerSocket(30154);
-			while(true)
+			while(!Master.sharedMemory.jobsToSendSlaveA.isEmpty())
 			{
 				Socket clientSocket = serverSocket.accept();
 				ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
-				Job job = new Job(JobType.B, 2);
-				System.out.println("Sending Job " + job.getJobType() + " to slave.");
-				out.writeObject(job);
-
-				/*while(this.isAlive())
-		    {
-		    	if(hasNewJob == true)
-		    	{
-		    		out.writeObject(job);
-		    		hasNewJob = false;
-		    		prevJobSent = true;
-		    	}
-		    }*/
+				System.out.println("Sending Job " + Master.sharedMemory.jobsToSendSlaveA.get(0).getJobType() + " to slave.");
+				out.writeObject(Master.sharedMemory.jobsToSendSlaveA.get(0));
+				Master.sharedMemory.jobsToSendSlaveA.remove(0);
 			}
 		}
 

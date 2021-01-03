@@ -10,8 +10,8 @@ public class SharedMemory
 	private int numAJobsSlaveB;
 	private int numBJobsSlaveB;
 	public ArrayList<Job> jobsToPerform;
-	ArrayList<Job> jobsToSendSlaveA;
-	ArrayList<Job> jobsToSendSlaveB;
+	public ArrayList<Job> jobsToSendSlaveA;
+	public ArrayList<Job> jobsToSendSlaveB;
 	
 	public SharedMemory()
 	{
