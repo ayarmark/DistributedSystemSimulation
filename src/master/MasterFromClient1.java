@@ -16,7 +16,7 @@ public class MasterFromClient1 extends Thread{
 			ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
 			Job returnedJob;
 			while((returnedJob = (Job)in.readObject()) != null) {
-				System.out.println("Received Job " + returnedJob.getJobID() + " " + returnedJob.getJobType() + "  from Client 1.");
+				System.out.println("Received Job " + returnedJob.getJobID() + " " + returnedJob.getJobType() + " from Client 1.");
 				Master.sharedMemory.jobsFromClients.add(returnedJob);
 			}
 		} catch (IOException e2) {

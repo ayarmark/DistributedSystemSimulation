@@ -17,26 +17,23 @@ public class Client1ToMaster extends Thread{
 		try
 		{	
 			Socket socket = new Socket("127.0.0.1", 1046);// connection going to MasterFromClient1
-			while(true)
-			{
-				ObjectOutputStream out =  new ObjectOutputStream(socket.getOutputStream());
-				
-				//create jobs and send
-				JobType jobType;
-			    Random rand = new Random();
-				for(int i=0; i<30; i++) {
-					Thread.sleep(1000);
-		    	 	if(rand.nextInt(2) == 1) {
-		    	 		jobType = JobType.A;
-		    	 	}
-		    	 	else {
-		    	 		jobType = JobType.B;
-		    	 	}
-		    		Job job = new Job(jobType, clientID);
-		    		System.out.println("Created request for job type " + jobType + ", with ID " + job.getJobID() + ", to Master.");
-		    		out.writeObject(job);
-		    		//System.out.println("Sent request for job type " + jobType);
-				}
+			ObjectOutputStream out =  new ObjectOutputStream(socket.getOutputStream());
+			
+			//create jobs and send
+			JobType jobType;
+		    Random rand = new Random();
+			for(int i=0; i<30; i++) {
+				Thread.sleep(1000);
+	    	 	if(rand.nextInt(2) == 1) {
+	    	 		jobType = JobType.A;
+	    	 	}
+	    	 	else {
+	    	 		jobType = JobType.B;
+	    	 	}
+	    		Job job = new Job(jobType, clientID);
+	    		System.out.println("Created request for job type " + jobType + ", with ID " + job.getJobID() + ", to Master.");
+	    		out.writeObject(job);
+	    		//System.out.println("Sent request for job type " + jobType);
 			}
 		}
 
