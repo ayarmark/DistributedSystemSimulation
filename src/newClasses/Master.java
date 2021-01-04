@@ -25,32 +25,32 @@ public class Master
 		/*MasterToSlaveA masterToSlaveA = new MasterToSlaveA();
 		masterToSlaveA.start();*/
 		
-		while(!sharedMemory.jobsToPerform.isEmpty()) {
+		while(!sharedMemory.jobsFromClients.isEmpty()) {
 		    //choose slave
 			int aBusy = (sharedMemory.getNumAJobsSlaveA()*2)+(sharedMemory.getNumBJobsSlaveA()*10);
 			int bBusy = (sharedMemory.getNumBJobsSlaveB()*2)+(sharedMemory.getNumAJobsSlaveB()*10);
-			if(sharedMemory.jobsToPerform.get(0).getJobType().equals(JobType.A)) {
+			if(sharedMemory.jobsFromClients.get(0).getJobType().equals(JobType.A)) {
 				if(aBusy + 8 <= bBusy){
 					//send to a
-					sharedMemory.jobsToSendSlaveA.add(sharedMemory.jobsToPerform.get(0));
-					sharedMemory.jobsToPerform.remove(0);
+					sharedMemory.jobsToSendSlaveA.add(sharedMemory.jobsFromClients.get(0));
+					sharedMemory.jobsFromClients.remove(0);
 				} 
 				else{
 					//send to b
-					sharedMemory.jobsToSendSlaveB.add(sharedMemory.jobsToPerform.get(0));
-					sharedMemory.jobsToPerform.remove(0);
+					sharedMemory.jobsToSendSlaveB.add(sharedMemory.jobsFromClients.get(0));
+					sharedMemory.jobsFromClients.remove(0);
 				}
 			}
 			else { //if(sharedMemory.jobsToPerform.get(0).getJobType().equals(JobType.B))
 				if(bBusy + 8 <= aBusy){
 					//send to b
-					sharedMemory.jobsToSendSlaveB.add(sharedMemory.jobsToPerform.get(0));
-					sharedMemory.jobsToPerform.remove(0);
+					sharedMemory.jobsToSendSlaveB.add(sharedMemory.jobsFromClients.get(0));
+					sharedMemory.jobsFromClients.remove(0);
 				} 
 				else{
 					//send to a
-					sharedMemory.jobsToSendSlaveA.add(sharedMemory.jobsToPerform.get(0));
-					sharedMemory.jobsToPerform.remove(0);
+					sharedMemory.jobsToSendSlaveA.add(sharedMemory.jobsFromClients.get(0));
+					sharedMemory.jobsFromClients.remove(0);
 				}
 			}
 		}

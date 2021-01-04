@@ -18,7 +18,7 @@ public class MasterFromClient1 extends Thread{
 			Job returnedJob;
 			while((returnedJob = (Job)in.readObject()) != null) {
 				System.out.println("Received Job " + returnedJob.getJobType() + " from Client 1.");
-				Master.sharedMemory.jobsToPerform.add(returnedJob);
+				Master.sharedMemory.jobsFromClients.add(returnedJob);
 			}
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block

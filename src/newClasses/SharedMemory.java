@@ -9,7 +9,7 @@ public class SharedMemory
 	private int numBJobsSlaveA;
 	private int numAJobsSlaveB;
 	private int numBJobsSlaveB;
-	public ArrayList<Job> jobsToPerform;
+	public ArrayList<Job> jobsFromClients;
 	public ArrayList<Job> jobsToSendSlaveA;
 	public ArrayList<Job> jobsToSendSlaveB;
 	
@@ -19,7 +19,7 @@ public class SharedMemory
 		numBJobsSlaveA=0;
 		numAJobsSlaveB=0;
 		numBJobsSlaveB=0;
-		jobsToPerform = new ArrayList<Job>();
+		jobsFromClients = new ArrayList<Job>();
 		jobsToSendSlaveA = new ArrayList<Job>();
 		jobsToSendSlaveB = new ArrayList<Job>();
 	}
