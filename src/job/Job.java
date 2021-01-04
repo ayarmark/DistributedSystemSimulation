@@ -3,15 +3,14 @@ import java.io.*;
 public class Job implements Serializable, Comparable<Job>{
 
 	private JobType jobType;
-	private static Integer jobID = 0;
+	private static Integer jobID;
+	private static Integer lastJobID =0;
 	private Integer clientID;
 	private boolean isFinished;
-	//comments
-	//penina made this public and extended the comment
-	public Job(JobType jobType, /*maybe dont pass jobID in Integer jobID,*/ Integer clientID) {
+	
+	public Job(JobType jobType, Integer clientID) {
 		this.jobType = jobType;
-		Job.jobID = ++jobID;
-		//this.jobID = ++jobID;
+		jobID = lastJobID++;
 		this.clientID = clientID;
 	}
 
@@ -27,7 +26,7 @@ public class Job implements Serializable, Comparable<Job>{
 		return jobType;
 	}
 
-	private static Integer getJobID() {
+	public static Integer getJobID() {//penina made this public
 		return jobID;
 	}
 

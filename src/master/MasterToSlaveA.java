@@ -18,7 +18,7 @@ public class MasterToSlaveA extends Thread{
 			{
 				Socket clientSocket = serverSocket.accept();
 				ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
-				System.out.println("Sending Job " + Master.sharedMemory.jobsToSendSlaveA.get(0).getJobType() + " to slave.");
+				System.out.println("Sending Job " + Master.sharedMemory.jobsToSendSlaveA.get(0).getJobID() + " " + Master.sharedMemory.jobsToSendSlaveA.get(0).getJobType() + " to slave.");
 				out.writeObject(Master.sharedMemory.jobsToSendSlaveA.get(0));
 				Master.sharedMemory.jobsToSendSlaveA.remove(0);
 			}
