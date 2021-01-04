@@ -1,4 +1,4 @@
-package newClasses;
+package master;
 
 
 import java.io.IOException;
@@ -6,12 +6,8 @@ import java.io.ObjectInputStream;
 import java.net.*;
 import java.util.ArrayList;
 
-import newClasses.Job;
-import newClasses.JobType;
-import newThreads.MasterFromClient1;
-import newThreads.MasterFromSlaveA;
-import newThreads.MasterToClient1;
-import newThreads.MasterToSlaveA;
+import job.Job;
+import job.JobType;
 
 public class Master 
 {

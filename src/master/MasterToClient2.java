@@ -1,4 +1,4 @@
-package newThreads;
+package master;
 
 public class MasterToClient2 extends Thread{
 

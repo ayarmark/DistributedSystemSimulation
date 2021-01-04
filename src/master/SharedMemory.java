@@ -1,7 +1,9 @@
-package newClasses;
+package master;
 
 import java.util.ArrayList;
 import java.util.Queue;
+
+import job.Job;
 
 public class SharedMemory 
 {

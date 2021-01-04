@@ -1,4 +1,4 @@
-package newClasses;
+package job;
 import java.io.*;
 public class Job implements Serializable, Comparable<Job>{
 

@@ -1,13 +1,11 @@
-package newClasses;
+package client;
 
 import java.io.*;
 import java.net.*;
 import java.util.Random;
 
-import newClasses.Job;
-import newClasses.JobType;
-import newThreads.Client1FromMaster;
-import newThreads.Client1ToMaster;
+import job.Job;
+import job.JobType;
 
 
 public class Client 

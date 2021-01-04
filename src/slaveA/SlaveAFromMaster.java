@@ -1,23 +1,20 @@
-package newThreads;
+package slaveA;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.net.ServerSocket;
 import java.net.Socket;
 
-import newClasses.Job;
+import job.Job;
 
-public class MasterFromSlaveA extends Thread{
-
+public class SlaveAFromMaster extends Thread{
 	public void run() {
 		
 		try {
-			ServerSocket serverSocket = new ServerSocket(30153);
-			Socket clientSocket = serverSocket.accept();
+			Socket clientSocket = new Socket("127.0.0.1", 30154);
 			ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
 			Job returnedJob;
 			while((returnedJob = (Job)in.readObject()) != null) {
-				System.out.println("Job " + returnedJob.getJobType() + " is complete.");
+				System.out.println("Received Job " + returnedJob.getJobType() + " from Master.");
 			}
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block

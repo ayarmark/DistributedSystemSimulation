@@ -1,17 +1,19 @@
-package newThreads;
+package master;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.ServerSocket;
 import java.net.Socket;
 
-import newClasses.Job;
+import job.Job;
 
-public class Client1FromMaster extends Thread{
-	
+public class MasterFromSlaveA extends Thread{
+
 	public void run() {
 		
 		try {
-			Socket clientSocket = new Socket("127.0.0.1", 30151);
+			ServerSocket serverSocket = new ServerSocket(30153);
+			Socket clientSocket = serverSocket.accept();
 			ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
 			Job returnedJob;
 			while((returnedJob = (Job)in.readObject()) != null) {

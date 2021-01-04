@@ -1,4 +1,4 @@
-package newThreads;
+package master;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -6,9 +6,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import newClasses.Job;
-import newClasses.JobType;
-import newClasses.Master;
+import job.Job;
+import job.JobType;
 
 public class MasterToSlaveA extends Thread{
 	public void run() {

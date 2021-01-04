@@ -1,4 +1,4 @@
-package newThreads;
+package slaveA;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -6,8 +6,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import newClasses.Job;
-import newClasses.JobType;
+import job.Job;
+import job.JobType;
 
 public class SlaveAToMaster extends Thread{
 	public void run() {

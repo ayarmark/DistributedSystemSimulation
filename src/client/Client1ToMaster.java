@@ -1,12 +1,13 @@
-package newThreads;
+package client;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Random;
-import newClasses.Job;
-import newClasses.JobType;
+
+import job.Job;
+import job.JobType;
 
 
 public class Client1ToMaster extends Thread{

@@ -1,12 +1,10 @@
-package newClasses;
+package slaveA;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-import newClasses.Job;
-import newThreads.SlaveAFromMaster;
-import newThreads.SlaveAToMaster;
+import job.Job;
 
 public class Slave {
 

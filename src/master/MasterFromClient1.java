@@ -1,12 +1,11 @@
-package newThreads;
+package master;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import newClasses.Job;
-import newClasses.Master;
+import job.Job;
 
 public class MasterFromClient1 extends Thread{
 	public void run() {
