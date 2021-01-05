@@ -17,7 +17,7 @@ public class Slave {
 		//performs job and marks complete
 		
 		//send complete job back to master
-		SlaveAToMaster slaveAToMaster = new SlaveAToMaster();
-		slaveAToMaster.start();
+		/*SlaveAToMaster slaveAToMaster = new SlaveAToMaster();
+		slaveAToMaster.start();*/
 	}
 }

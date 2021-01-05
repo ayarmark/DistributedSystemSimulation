@@ -35,6 +35,7 @@ public class Client1ToMaster extends Thread{
 	    		out.writeObject(job);
 	    		//System.out.println("Sent request for job type " + jobType);
 			}
+			while(true);
 		}
 
 		catch (UnknownHostException e) {

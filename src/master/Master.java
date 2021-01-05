@@ -16,12 +16,13 @@ public class Master
 	{		
 		//receive job from client
 		MasterFromClient1 masterFromClient1 = new MasterFromClient1();
+		MasterToSlaveA masterToSlaveA = new MasterToSlaveA();
+		MasterDecideSlave masterDecideSlave = new MasterDecideSlave();
 		masterFromClient1.start();
+		masterToSlaveA.start();
+		masterDecideSlave.start();
 		
-		/*MasterToSlaveA masterToSlaveA = new MasterToSlaveA();
-		masterToSlaveA.start();*/
-		
-		while(!sharedMemory.jobsFromClients.isEmpty()) {
+		/*while(!sharedMemory.jobsFromClients.isEmpty()) {
 		    //choose slave
 			int aBusy = (sharedMemory.getNumAJobsSlaveA()*2)+(sharedMemory.getNumBJobsSlaveA()*10);
 			int bBusy = (sharedMemory.getNumBJobsSlaveB()*2)+(sharedMemory.getNumAJobsSlaveB()*10);
@@ -49,7 +50,10 @@ public class Master
 					sharedMemory.jobsFromClients.remove(0);
 				}
 			}
-		}
+			System.out.println(sharedMemory.jobsFromClients);
+			System.out.println(sharedMemory.jobsToSendSlaveA);
+			System.out.println(sharedMemory.jobsToSendSlaveB);
+		}*/
 		
 	    /*	
 		//receive completed job from slave	
