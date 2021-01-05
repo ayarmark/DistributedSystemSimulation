@@ -4,7 +4,13 @@ import job.JobType;
 
 public class MasterDecideSlave  extends Thread{
 	public void run() {
+		System.out.println(Master.sharedMemory.jobsFromClients);
+		System.out.println(Master.sharedMemory.jobsToSendSlaveA);
+		System.out.println(Master.sharedMemory.jobsToSendSlaveB);
 		while(!Master.sharedMemory.jobsFromClients.isEmpty()) {
+			System.out.println(Master.sharedMemory.jobsFromClients);
+			System.out.println(Master.sharedMemory.jobsToSendSlaveA);
+			System.out.println(Master.sharedMemory.jobsToSendSlaveB);
 		    //choose slave
 			int aBusy = (Master.sharedMemory.getNumAJobsSlaveA()*2)+(Master.sharedMemory.getNumBJobsSlaveA()*10);
 			int bBusy = (Master.sharedMemory.getNumBJobsSlaveB()*2)+(Master.sharedMemory.getNumAJobsSlaveB()*10);
@@ -32,9 +38,6 @@ public class MasterDecideSlave  extends Thread{
 					Master.sharedMemory.jobsFromClients.remove(0);
 				}
 			}
-			System.out.println(Master.sharedMemory.jobsFromClients);
-			System.out.println(Master.sharedMemory.jobsToSendSlaveA);
-			System.out.println(Master.sharedMemory.jobsToSendSlaveB);
 		}
 	}
 }
