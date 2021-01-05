@@ -14,13 +14,18 @@ public class MasterToSlaveA extends Thread{
 		try
 		{
 			ServerSocket serverSocket = new ServerSocket(30154);
-			while(!Master.sharedMemory.jobsToSendSlaveA.isEmpty())
+			Socket clientSocket = serverSocket.accept();
+			ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
+			
+			while(this.isAlive())
 			{
-				Socket clientSocket = serverSocket.accept();
-				ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
-				System.out.println("Sending Job " + Master.sharedMemory.jobsToSendSlaveA.get(0).getJobID() + " " + Master.sharedMemory.jobsToSendSlaveA.get(0).getJobType() + " to slave.");
-				out.writeObject(Master.sharedMemory.jobsToSendSlaveA.get(0));
-				Master.sharedMemory.jobsToSendSlaveA.remove(0);
+				Job j = Master.sharedMemory.jobsToSendSlaveA.peek();
+				if( j !=null)
+				{
+					System.out.println("Sending Job " + j.getJobID() + " " + j.getJobType() + " to slave.");
+					out.writeObject(j);
+					Master.sharedMemory.jobsToSendSlaveA.poll();
+				}
 			}
 		}
 

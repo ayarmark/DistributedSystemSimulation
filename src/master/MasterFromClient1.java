@@ -25,9 +25,6 @@ public class MasterFromClient1 extends Thread{
 		} catch (ClassNotFoundException e) 
 		{
 			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 }

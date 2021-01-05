@@ -2,6 +2,7 @@ package master;
 
 import java.util.ArrayList;
 import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 import job.Job;
 
@@ -11,9 +12,9 @@ public class SharedMemory
 	private int numBJobsSlaveA;
 	private int numAJobsSlaveB;
 	private int numBJobsSlaveB;
-	public ArrayList<Job> jobsFromClients;
-	public ArrayList<Job> jobsToSendSlaveA;
-	public ArrayList<Job> jobsToSendSlaveB;
+	public ConcurrentLinkedQueue<Job> jobsFromClients;
+	public ConcurrentLinkedQueue<Job> jobsToSendSlaveA;
+	public ConcurrentLinkedQueue<Job> jobsToSendSlaveB;
 	
 	public SharedMemory()
 	{
@@ -21,9 +22,9 @@ public class SharedMemory
 		numBJobsSlaveA=0;
 		numAJobsSlaveB=0;
 		numBJobsSlaveB=0;
-		jobsFromClients = new ArrayList<Job>();
-		jobsToSendSlaveA = new ArrayList<Job>();
-		jobsToSendSlaveB = new ArrayList<Job>();
+		jobsFromClients = new ConcurrentLinkedQueue<Job>();
+		jobsToSendSlaveA = new ConcurrentLinkedQueue<Job>();
+		jobsToSendSlaveB = new ConcurrentLinkedQueue<Job>();
 	}
 
 	public int getNumAJobsSlaveA() 
