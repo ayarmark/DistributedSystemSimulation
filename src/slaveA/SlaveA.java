@@ -6,7 +6,7 @@ import java.net.UnknownHostException;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import job.Job;
 import job.JobType;
-
+//c
 public class SlaveA {
 	
 	//by default the scope of this is package, only available to classes in slaveA package
