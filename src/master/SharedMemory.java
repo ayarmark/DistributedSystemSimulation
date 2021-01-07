@@ -1,5 +1,11 @@
 package master;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -19,6 +25,9 @@ public class SharedMemory
 	public ConcurrentLinkedQueue<Job> jobsToSendClient1;
 	public ConcurrentLinkedQueue<Job> jobsToSendClient2;
 	
+	static ObjectInputStream slaveAIn;
+	static ObjectOutputStream slaveAOut;
+	
 	public SharedMemory()
 	{
 		numAJobsSlaveA=0;
@@ -31,6 +40,21 @@ public class SharedMemory
 		jobsFromSlaves = new ConcurrentLinkedQueue<Job>();
 		jobsToSendClient1 = new ConcurrentLinkedQueue<Job>();
 		jobsToSendClient2 = new ConcurrentLinkedQueue<Job>();
+		try
+		{
+			ServerSocket serverSocket = new ServerSocket(30154);
+			Socket clientSocket = serverSocket.accept();
+			slaveAOut =  new ObjectOutputStream(clientSocket.getOutputStream());
+			slaveAIn = new ObjectInputStream(clientSocket.getInputStream());
+		}
+
+		catch (UnknownHostException e) {
+			System.err.println("Don't know about host 127.0.0.1");
+			System.exit(1);
+		} catch (IOException ex) {
+			System.err.println("Couldn't get I/O for the connection to 127.0.0.1");
+			System.exit(1);
+		} 
 	}
 }
 

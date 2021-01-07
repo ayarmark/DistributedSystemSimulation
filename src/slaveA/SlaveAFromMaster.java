@@ -10,10 +10,9 @@ public class SlaveAFromMaster extends Thread{
 	public void run() {
 		
 		try {
-			Socket clientSocket = new Socket("127.0.0.1", 30154);
-			ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
+			
 			Job returnedJob;
-			while((returnedJob = (Job)in.readObject()) != null) {
+			while((returnedJob = (Job)Memory.in.readObject()) != null) {
 				System.out.println("Received Job " + returnedJob.getJobType() + " from Master.");
 				SlaveA.jobsToDo.add(returnedJob);
 				System.out.println("Jobs to do"+ SlaveA.jobsToDo);

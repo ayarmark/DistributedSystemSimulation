@@ -13,10 +13,21 @@ public class SlaveA {
 	static ConcurrentLinkedQueue<Job> jobsToDo = new ConcurrentLinkedQueue<Job>();
 	static ConcurrentLinkedQueue<Job> jobsFinished = new ConcurrentLinkedQueue<Job>();
 	
+	
+	
 	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException {
+		
+		//initializes in/output streams with master
+		Memory mem = new Memory();
 		//receive job from master
 		SlaveAFromMaster slaveAFromMaster = new SlaveAFromMaster();
 		slaveAFromMaster.start();
+		
+		//send complete job back to master
+		//sends job back in SlaveAToMaster thread
+		
+		SlaveAToMaster slaveAToMaster = new SlaveAToMaster();
+		slaveAToMaster.start();
 		
 
 		
@@ -24,24 +35,31 @@ public class SlaveA {
 		//gets put in jobsToDo list in the SlaveAFromMaster thread
 		
 		// performs job and marks complete
-		while (!jobsToDo.isEmpty()) {
-			if(jobsToDo.peek().getJobType() == JobType.A) {
-				SlaveAFromMaster.sleep(2000);
-				jobsToDo.peek().setFinished(true);
-				jobsFinished.add(jobsToDo.peek());
-				//jobsToDo.poll();
-				System.out.println("Job was type A");
-			} else {
-				SlaveAFromMaster.sleep(10000);
-				jobsToDo.peek().setFinished(true);
-				jobsFinished.add(jobsToDo.peek());
-				//jobsToDo.poll();
-				System.out.println("Job was type B");
+		boolean done=false;
+		while (!done) 
+		{
+			if (!jobsToDo.isEmpty()) 
+			{
+				if(jobsToDo.peek().getJobType() == JobType.A) 
+				{
+					Thread.sleep(2000);
+					jobsToDo.peek().setFinished(true);
+					jobsFinished.add(jobsToDo.peek());
+					jobsToDo.poll();
+					System.out.println("Completed job type A");
+				} 
+				else 
+				{
+					Thread.sleep(10000);
+					jobsToDo.peek().setFinished(true);
+					jobsFinished.add(jobsToDo.peek());
+					jobsToDo.poll();
+					System.out.println("Completed job type B");
+				}
 			}
-		}	
-		//send complete job back to master
-		//sends job back in SlaveAToMaster thread
-		SlaveAToMaster slaveAToMaster = new SlaveAToMaster();
-		slaveAToMaster.start();
+			
+		}
+		
+
 	}
 }
