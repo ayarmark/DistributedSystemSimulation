@@ -16,8 +16,8 @@ public class Client
 		Client1ToMaster client1ToMaster = new Client1ToMaster();
 		client1ToMaster.start();
 		
-		//receive from master - need to first wait
-		/*Client1FromMaster client1FromMaster = new Client1FromMaster();
-		client1FromMaster.start();*/
+		//receive from master
+		Client1FromMaster client1FromMaster = new Client1FromMaster();
+		client1FromMaster.start();
 	}
 }

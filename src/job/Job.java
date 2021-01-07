@@ -5,7 +5,7 @@ public class Job implements Serializable, Comparable<Job>{
 	private JobType jobType;
 	private Integer jobID;
 	private static Integer lastJobID =0;
-	private Integer clientID;
+	private int clientID;
 	private boolean isFinished;
 	
 	public Job(JobType jobType, Integer clientID) {
@@ -30,7 +30,7 @@ public class Job implements Serializable, Comparable<Job>{
 		return jobID;
 	}
 
-	private Integer getClientID() {
+	public Integer getClientID() {
 		return clientID;
 	}
 

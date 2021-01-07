@@ -24,7 +24,7 @@ public class Client1ToMaster extends Thread{
 		    Random rand = new Random();
 			for(int i=0; i<30; i++) {
 				Thread.sleep(1000);
-	    	 	if(rand.nextInt(2) == 1) {
+	    	 	if(rand.nextInt(10) == 1) {//fix back to nextInt(2)
 	    	 		jobType = JobType.A;
 	    	 	}
 	    	 	else {

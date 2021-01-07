@@ -8,13 +8,16 @@ import job.Job;
 
 public class SharedMemory 
 {
-	private int numAJobsSlaveA;
-	private int numBJobsSlaveA;
-	private int numAJobsSlaveB;
-	private int numBJobsSlaveB;
+	public int numAJobsSlaveA;
+	public int numBJobsSlaveA;
+	public int numAJobsSlaveB;
+	public int numBJobsSlaveB;
 	public ConcurrentLinkedQueue<Job> jobsFromClients;
 	public ConcurrentLinkedQueue<Job> jobsToSendSlaveA;
 	public ConcurrentLinkedQueue<Job> jobsToSendSlaveB;
+	public ConcurrentLinkedQueue<Job> jobsFromSlaves;
+	public ConcurrentLinkedQueue<Job> jobsToSendClient1;
+	public ConcurrentLinkedQueue<Job> jobsToSendClient2;
 	
 	public SharedMemory()
 	{
@@ -25,41 +28,9 @@ public class SharedMemory
 		jobsFromClients = new ConcurrentLinkedQueue<Job>();
 		jobsToSendSlaveA = new ConcurrentLinkedQueue<Job>();
 		jobsToSendSlaveB = new ConcurrentLinkedQueue<Job>();
+		jobsFromSlaves = new ConcurrentLinkedQueue<Job>();
+		jobsToSendClient1 = new ConcurrentLinkedQueue<Job>();
+		jobsToSendClient2 = new ConcurrentLinkedQueue<Job>();
 	}
-
-	public int getNumAJobsSlaveA() 
-	{
-		return numAJobsSlaveA;
-	}
-
-	public void setNumAJobsSlaveA(int numAJobsSlaveA) {
-		this.numAJobsSlaveA = numAJobsSlaveA;
-	}
-
-	public int getNumBJobsSlaveA() {
-		return numBJobsSlaveA;
-	}
-
-	public void setNumBJobsSlaveA(int numBJobsSlaveA) {
-		this.numBJobsSlaveA = numBJobsSlaveA;
-	}
-
-	public int getNumAJobsSlaveB() {
-		return numAJobsSlaveB;
-	}
-
-	public void setNumAJobsSlaveB(int numAJobsSlaveB) {
-		this.numAJobsSlaveB = numAJobsSlaveB;
-	}
-
-	public int getNumBJobsSlaveB() {
-		return numBJobsSlaveB;
-	}
-
-	public void setNumBJobsSlaveB(int numBJobsSlaveB) {
-		this.numBJobsSlaveB = numBJobsSlaveB;
-	}
-	
-	
 }
 
