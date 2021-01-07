@@ -23,24 +23,24 @@ public class MasterDecideSlave  extends Thread{
 				if(j.getJobType().equals(JobType.A)) {
 					if(aBusy + 8 <= bBusy){
 						//send to a
-						Master.sharedMemory.jobsToSendSlaveA.add(j);
+						Master.sharedMemory.jobsToSendSlaveB.add(j);
 						Master.sharedMemory.jobsFromClients.poll();//removes first one
 					} 
 					else{
 						//send to b
-						Master.sharedMemory.jobsToSendSlaveB.add(j);
+						Master.sharedMemory.jobsToSendSlaveA.add(j);
 						Master.sharedMemory.jobsFromClients.poll();
 					}
 				}
 				else { //if(sharedMemory.jobsToPerform.get(0).getJobType().equals(JobType.B))
 					if(bBusy + 8 <= aBusy){
 						//send to b
-						Master.sharedMemory.jobsToSendSlaveB.add(j);
+						Master.sharedMemory.jobsToSendSlaveA.add(j);
 						Master.sharedMemory.jobsFromClients.poll();
 					} 
 					else{
 						//send to a
-						Master.sharedMemory.jobsToSendSlaveA.add(j);
+						Master.sharedMemory.jobsToSendSlaveB.add(j);
 						Master.sharedMemory.jobsFromClients.poll();
 					}
 				}

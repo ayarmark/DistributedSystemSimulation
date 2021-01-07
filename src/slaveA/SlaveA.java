@@ -10,6 +10,7 @@ public class SlaveA {
 	
 	//by default the scope of this is package, only available to classes in slaveA package
 	static ConcurrentLinkedQueue<Job> jobsToDo = new ConcurrentLinkedQueue<Job>();
+	static ConcurrentLinkedQueue<Job> jobsToSendBack = new ConcurrentLinkedQueue<Job>();
 	
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		//receive job from master

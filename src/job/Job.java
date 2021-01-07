@@ -3,7 +3,7 @@ import java.io.*;
 public class Job implements Serializable, Comparable<Job>{
 
 	private JobType jobType;
-	private static Integer jobID;
+	private Integer jobID;
 	private static Integer lastJobID =0;
 	private Integer clientID;
 	private boolean isFinished;
@@ -26,7 +26,7 @@ public class Job implements Serializable, Comparable<Job>{
 		return jobType;
 	}
 
-	public static Integer getJobID() {//penina made this public
+	public Integer getJobID() {//penina made this public
 		return jobID;
 	}
 
