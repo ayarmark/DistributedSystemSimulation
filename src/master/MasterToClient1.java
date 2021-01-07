@@ -13,17 +13,13 @@ public class MasterToClient1 extends Thread{
 	public void run() {
 		try
 		{
-			ServerSocket serverSocket = new ServerSocket(30151);
-			Socket clientSocket = serverSocket.accept();
-			ObjectOutputStream out =  new ObjectOutputStream(clientSocket.getOutputStream());
-			
 			while(this.isAlive())
 			{
 				Job j = Master.sharedMemory.jobsToSendClient1.peek();
 				if( j !=null)
 				{
 					System.out.println("Sending Job " + j.getJobID() + " " + j.getJobType() + " back to Client.");
-					out.writeObject(j);
+					SharedMemory.client1Out.writeObject(j);
 					Master.sharedMemory.jobsToSendClient1.poll();
 				}
 			}

@@ -16,9 +16,6 @@ public class Client1ToMaster extends Thread{
 		
 		try
 		{	
-			Socket socket = new Socket("127.0.0.1", 1046);// connection going to MasterFromClient1
-			ObjectOutputStream out =  new ObjectOutputStream(socket.getOutputStream());
-			
 			//create jobs and send
 			JobType jobType;
 		    Random rand = new Random();
@@ -32,7 +29,7 @@ public class Client1ToMaster extends Thread{
 	    	 	}
 	    		Job job = new Job(jobType, clientID);
 	    		System.out.println("Created request for job type " + jobType + ", with ID " + job.getJobID() + ", to Master.");
-	    		out.writeObject(job);
+	    		Client.out.writeObject(job);
 	    		//System.out.println("Sent request for job type " + jobType);
 			}
 			while(true);

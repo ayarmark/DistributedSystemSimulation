@@ -10,8 +10,16 @@ import job.JobType;
 
 public class Client 
 {
+	static Socket socketWithMaster;
+	static ObjectOutputStream out;
+	static ObjectInputStream in;
+	
 	public static void main(String [] args) throws UnknownHostException, IOException
 	{
+		socketWithMaster = new Socket("127.0.0.1", 1046);// connection going to MasterFromClient1
+		out =  new ObjectOutputStream(socketWithMaster.getOutputStream());
+		in = new ObjectInputStream(socketWithMaster.getInputStream());
+		
 		//sends 30 jobs to master
 		Client1ToMaster client1ToMaster = new Client1ToMaster();
 		client1ToMaster.start();

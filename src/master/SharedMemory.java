@@ -27,6 +27,8 @@ public class SharedMemory
 	
 	static ObjectInputStream slaveAIn;
 	static ObjectOutputStream slaveAOut;
+	static ObjectInputStream client1In;
+	static ObjectOutputStream client1Out;
 	
 	public SharedMemory()
 	{
@@ -42,10 +44,17 @@ public class SharedMemory
 		jobsToSendClient2 = new ConcurrentLinkedQueue<Job>();
 		try
 		{
-			ServerSocket serverSocket = new ServerSocket(30154);
-			Socket clientSocket = serverSocket.accept();
-			slaveAOut =  new ObjectOutputStream(clientSocket.getOutputStream());
-			slaveAIn = new ObjectInputStream(clientSocket.getInputStream());
+			ServerSocket serverSocketWithSlave = new ServerSocket(30154);
+			Socket clientSocketSlave = serverSocketWithSlave.accept();
+			slaveAOut =  new ObjectOutputStream(clientSocketSlave.getOutputStream());
+			slaveAIn = new ObjectInputStream(clientSocketSlave.getInputStream());
+			
+			ServerSocket serverSocketWithClient = new ServerSocket(1046);
+			Socket clientSocketClient = serverSocketWithClient.accept();
+			client1Out = new ObjectOutputStream(clientSocketClient.getOutputStream());
+			client1In = new ObjectInputStream(clientSocketClient.getInputStream());
+			
+			
 		}
 
 		catch (UnknownHostException e) {
