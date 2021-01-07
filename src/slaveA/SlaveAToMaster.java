@@ -24,7 +24,7 @@ public class SlaveAToMaster extends Thread {
 					if(!SlaveA.jobsFinished.isEmpty()) 
 					{
 						System.out.println("Sending complete Job " + SlaveA.jobsFinished.peek().getJobType() + " back to master.");
-						Memory.out.writeObject(SlaveA.jobsFinished.poll());
+						SlaveA.out.writeObject(SlaveA.jobsFinished.poll());
 					}
 				}
 				

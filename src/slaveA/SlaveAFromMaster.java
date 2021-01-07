@@ -12,7 +12,7 @@ public class SlaveAFromMaster extends Thread{
 		try {
 			
 			Job returnedJob;
-			while((returnedJob = (Job)Memory.in.readObject()) != null) {
+			while((returnedJob = (Job)SlaveA.in.readObject()) != null) {
 				System.out.println("Received Job " + returnedJob.getJobType() + " from Master.");
 				SlaveA.jobsToDo.add(returnedJob);
 				System.out.println("Jobs to do"+ SlaveA.jobsToDo);

@@ -1,6 +1,7 @@
 package slaveA;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -13,12 +14,27 @@ public class SlaveA {
 	static ConcurrentLinkedQueue<Job> jobsToDo = new ConcurrentLinkedQueue<Job>();
 	static ConcurrentLinkedQueue<Job> jobsFinished = new ConcurrentLinkedQueue<Job>();
 	
+	static Socket clientSocket;
+	static ObjectInputStream in;
+	static ObjectOutputStream out;
+	
 	
 	
 	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException {
 		
 		//initializes in/output streams with master
-		Memory mem = new Memory();
+		try 
+		{
+			clientSocket = new Socket("127.0.0.1", 30154);
+			in = new ObjectInputStream(clientSocket.getInputStream());
+			out = new ObjectOutputStream(clientSocket.getOutputStream());	
+		
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} 
+		
+		
 		//receive job from master
 		SlaveAFromMaster slaveAFromMaster = new SlaveAFromMaster();
 		slaveAFromMaster.start();
