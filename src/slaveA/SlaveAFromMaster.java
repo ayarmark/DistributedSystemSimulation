@@ -15,6 +15,8 @@ public class SlaveAFromMaster extends Thread{
 			Job returnedJob;
 			while((returnedJob = (Job)in.readObject()) != null) {
 				System.out.println("Received Job " + returnedJob.getJobType() + " from Master.");
+				SlaveA.jobsToDo.add(returnedJob);
+				System.out.println("Jobs to do"+ SlaveA.jobsToDo);
 			}
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block

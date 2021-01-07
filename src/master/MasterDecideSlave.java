@@ -14,9 +14,9 @@ public class MasterDecideSlave  extends Thread{
 			Job j= Master.sharedMemory.jobsFromClients.peek();
 			if( j != null)
 			{
-				System.out.println(Master.sharedMemory.jobsFromClients);
-				System.out.println(Master.sharedMemory.jobsToSendSlaveA);
-				System.out.println(Master.sharedMemory.jobsToSendSlaveB);
+				System.out.println("Jobs from Clients: " + Master.sharedMemory.jobsFromClients);
+				System.out.println("Jobs to Send Slave A: "+Master.sharedMemory.jobsToSendSlaveA);
+				System.out.println("Jobs to Send Slave B: "+Master.sharedMemory.jobsToSendSlaveB);
 			    //choose slave
 				int aBusy = (Master.sharedMemory.getNumAJobsSlaveA()*2)+(Master.sharedMemory.getNumBJobsSlaveA()*10);
 				int bBusy = (Master.sharedMemory.getNumBJobsSlaveB()*2)+(Master.sharedMemory.getNumAJobsSlaveB()*10);
