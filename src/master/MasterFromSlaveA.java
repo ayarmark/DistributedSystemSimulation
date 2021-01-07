@@ -15,6 +15,7 @@ public class MasterFromSlaveA extends Thread{
 			Job returnedJob;
 			while((returnedJob = (Job)SharedMemory.slaveAIn.readObject()) != null) {
 				System.out.println("Job " + returnedJob.getJobType() + " is complete.");
+				Master.sharedMemory.jobsFromSlaves.add(returnedJob);
 			}
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
