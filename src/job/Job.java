@@ -14,15 +14,15 @@ public class Job implements Serializable, Comparable<Job>{
 		this.clientID = clientID;
 	}
 
-	private boolean isFinished() {
+	public boolean isFinished() {
 		return isFinished;
 	}
 
-	public void setFinished(boolean isFinished) {//aidel made this public
+	public void setFinished(boolean isFinished) {
 		this.isFinished = isFinished;
 	}
 
-	public JobType getJobType() {//penina made this public
+	public JobType getJobType() {
 		return jobType;
 	}
 
