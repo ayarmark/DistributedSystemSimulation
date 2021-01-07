@@ -18,7 +18,7 @@ public class Job implements Serializable, Comparable<Job>{
 		return isFinished;
 	}
 
-	private void setFinished(boolean isFinished) {
+	public void setFinished(boolean isFinished) {//aidel made this public
 		this.isFinished = isFinished;
 	}
 
