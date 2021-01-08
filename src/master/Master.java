@@ -1,5 +1,5 @@
 package master;
-
+//c
 public class Master 
 {
 	public static SharedMemory sharedMemory = new SharedMemory();
