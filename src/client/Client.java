@@ -2,10 +2,15 @@ package client;
 
 import java.io.*;
 import java.net.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+import job.Job;
 
 
 public class Client 
 {
+	static ConcurrentLinkedQueue<Job> jobsToDo = new ConcurrentLinkedQueue<Job>();
+	
 	static Socket socketWithMaster;
 	static ObjectOutputStream out;
 	static ObjectInputStream in;
@@ -16,7 +21,11 @@ public class Client
 		out =  new ObjectOutputStream(socketWithMaster.getOutputStream());
 		in = new ObjectInputStream(socketWithMaster.getInputStream());
 		
-		//sends 30 jobs to master
+		//creates 30 jobs
+		Client1CreateJobs client1CreateJobs = new Client1CreateJobs();
+		client1CreateJobs.start();
+		
+		//sends to master
 		Client1ToMaster client1ToMaster = new Client1ToMaster();
 		client1ToMaster.start();
 		

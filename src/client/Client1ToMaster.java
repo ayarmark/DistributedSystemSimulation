@@ -2,34 +2,20 @@ package client;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
-import java.util.Random;
-
-import job.Job;
-import job.JobType;
 
 
 public class Client1ToMaster extends Thread{
 	public void run() {
-		int clientID = 10;
-		
 		try
 		{	
-			//create jobs and send
-			JobType jobType;
-		    Random rand = new Random();
-			for(int i=0; i<30; i++) {
-				Thread.sleep(1000);
-	    	 	if(rand.nextInt(2) == 1) {
-	    	 		jobType = JobType.A;
-	    	 	}
-	    	 	else {
-	    	 		jobType = JobType.B;
-	    	 	}
-	    		Job job = new Job(jobType, clientID);
-	    		System.out.println("User entered request for " + job + ", sending to Master.");
-	    		Client.out.writeObject(job);
+			while(this.isAlive())
+			{
+				if(!Client.jobsToDo.isEmpty()) 
+				{
+					System.out.println("Sending " + Client.jobsToDo.peek() + " to master.");
+					Client.out.writeObject(Client.jobsToDo.poll());
+				}
 			}
-			while(true);
 		}
 
 		catch (UnknownHostException e) {
@@ -38,8 +24,6 @@ public class Client1ToMaster extends Thread{
 		} catch (IOException ex) {
 			ex.printStackTrace();
 			System.exit(1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} 
+		}
 	}
 }
