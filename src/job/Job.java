@@ -2,6 +2,7 @@ package job;
 import java.io.*;
 public class Job implements Serializable, Comparable<Job>{
 
+	private static final long serialVersionUID = 1L;
 	private JobType jobType;
 	private Integer jobID;
 	private static Integer lastJobID =0;
