@@ -10,12 +10,12 @@ public class MasterDecideClient extends Thread{
 			Job j= Master.sharedMemory.jobsFromSlaves.peek();
 			if( j != null)
 			{
-				System.out.println();
+				/*System.out.println();
 				System.out.println("Update:");
 				System.out.println("Jobs from Slaves: " + Master.sharedMemory.jobsFromSlaves);
 				System.out.println("Jobs to Send Client 1: "+Master.sharedMemory.jobsToSendClient1);
 				System.out.println("Jobs to Send Client 2: "+Master.sharedMemory.jobsToSendClient2);
-				System.out.println();
+				System.out.println();*/
 			    //choose client
 				if(j.getClientID() == 10) {//send to client 1
 					Master.sharedMemory.jobsToSendClient1.add(j);
