@@ -25,8 +25,12 @@ public class SharedMemory
 	
 	static ObjectInputStream slaveAIn;
 	static ObjectOutputStream slaveAOut;
+	static ObjectInputStream slaveBIn;
+	static ObjectOutputStream slaveBOut;
 	static ObjectInputStream client1In;
 	static ObjectOutputStream client1Out;
+	static ObjectInputStream client2In;
+	static ObjectOutputStream client2Out;
 	
 	public SharedMemory()
 	{
@@ -42,15 +46,25 @@ public class SharedMemory
 		jobsToSendClient2 = new ConcurrentLinkedQueue<Job>();
 		try
 		{
-			ServerSocket serverSocketWithSlave = new ServerSocket(30154);
-			Socket clientSocketSlave = serverSocketWithSlave.accept();
-			slaveAOut =  new ObjectOutputStream(clientSocketSlave.getOutputStream());
-			slaveAIn = new ObjectInputStream(clientSocketSlave.getInputStream());
+			ServerSocket serverSocketWithSlaveA = new ServerSocket(30154);
+			Socket clientSocketSlaveA = serverSocketWithSlaveA.accept();
+			slaveAOut =  new ObjectOutputStream(clientSocketSlaveA.getOutputStream());
+			slaveAIn = new ObjectInputStream(clientSocketSlaveA.getInputStream());
 			
-			ServerSocket serverSocketWithClient = new ServerSocket(1046);
-			Socket clientSocketClient = serverSocketWithClient.accept();
-			client1Out = new ObjectOutputStream(clientSocketClient.getOutputStream());
-			client1In = new ObjectInputStream(clientSocketClient.getInputStream());
+			ServerSocket serverSocketWithSlaveB = new ServerSocket(30160);
+			Socket clientSocketSlaveB = serverSocketWithSlaveB.accept();
+			slaveBOut =  new ObjectOutputStream(clientSocketSlaveB.getOutputStream());
+			slaveBIn = new ObjectInputStream(clientSocketSlaveB.getInputStream());
+			
+			ServerSocket serverSocketWithClient1 = new ServerSocket(1046);
+			Socket clientSocketClient1 = serverSocketWithClient1.accept();
+			client1Out = new ObjectOutputStream(clientSocketClient1.getOutputStream());
+			client1In = new ObjectInputStream(clientSocketClient1.getInputStream());
+			
+			ServerSocket serverSocketWithClient2 = new ServerSocket(1047);
+			Socket clientSocketClient2 = serverSocketWithClient2.accept();
+			client2Out = new ObjectOutputStream(clientSocketClient2.getOutputStream());
+			client2In = new ObjectInputStream(clientSocketClient2.getInputStream());
 			
 			
 		}

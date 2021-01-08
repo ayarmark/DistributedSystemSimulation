@@ -38,7 +38,9 @@ public class Job implements Serializable, Comparable<Job>{
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Job [jobType=");
+		builder.append("Job [ID=");
+		builder.append(jobID);
+		builder.append(", jobType=");
 		builder.append(jobType);
 		builder.append(", clientID=");
 		builder.append(clientID);
