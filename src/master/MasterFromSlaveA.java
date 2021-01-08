@@ -6,6 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import job.Job;
+import job.JobType;
 
 public class MasterFromSlaveA extends Thread{
 
@@ -16,6 +17,12 @@ public class MasterFromSlaveA extends Thread{
 			while((returnedJob = (Job)SharedMemory.slaveAIn.readObject()) != null) {
 				System.out.println("Job " + returnedJob.getJobType() + " is complete.");
 				Master.sharedMemory.jobsFromSlaves.add(returnedJob);
+				if(returnedJob.getJobType().equals(JobType.A)) {
+					Master.sharedMemory.numAJobsSlaveA--;
+				}
+				else {
+					Master.sharedMemory.numBJobsSlaveA--;
+				}
 			}
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
