@@ -10,17 +10,21 @@ public class MasterFromSlaveB extends Thread{
 		
 		try {
 			Job returnedJob;
-			while((returnedJob = (Job)SharedMemory.slaveBIn.readObject()) != null) {
+			while((returnedJob = (Job)SharedMemory.slaveAIn.readObject()) != null) {
 				System.out.println(returnedJob + " is complete.");
 				Master.sharedMemory.jobsFromSlaves.add(returnedJob);
 				if(returnedJob.getJobType().equals(JobType.A)) {
-					Master.sharedMemory.numAJobsSlaveB--;
+					synchronized(Master.sharedMemory) {
+					Master.sharedMemory.numAJobsSlaveB--;}
+					
 				}
 				else {
-					Master.sharedMemory.numBJobsSlaveB--;
+					synchronized (Master.sharedMemory) {					
+						Master.sharedMemory.numBJobsSlaveB--;
+					}
 				}
 			}
-			SharedMemory.serverSocketWithSlaveB.close();
+			SharedMemory.serverSocketWithSlaveA.close();
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		} catch (ClassNotFoundException e) 
@@ -29,4 +33,3 @@ public class MasterFromSlaveB extends Thread{
 		}
 	}
 }
-
