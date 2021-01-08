@@ -1,18 +1,9 @@
 package master;
-//c
-
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.net.*;
-import java.util.ArrayList;
-
-import job.Job;
-import job.JobType;
 
 public class Master 
 {
 	public static SharedMemory sharedMemory = new SharedMemory();
-	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException
+	public static void main(String[] args)
 	{		
 		MasterFromClient1 masterFromClient1 = new MasterFromClient1();
 		MasterToSlaveA masterToSlaveA = new MasterToSlaveA();

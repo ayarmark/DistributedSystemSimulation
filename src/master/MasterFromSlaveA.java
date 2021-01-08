@@ -1,10 +1,6 @@
 package master;
-//c
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
 
+import java.io.IOException;
 import job.Job;
 import job.JobType;
 
@@ -15,7 +11,7 @@ public class MasterFromSlaveA extends Thread{
 		try {
 			Job returnedJob;
 			while((returnedJob = (Job)SharedMemory.slaveAIn.readObject()) != null) {
-				System.out.println("Job " + returnedJob.getJobType() + " is complete.");
+				System.out.println(returnedJob + " is complete.");
 				Master.sharedMemory.jobsFromSlaves.add(returnedJob);
 				if(returnedJob.getJobType().equals(JobType.A)) {
 					Master.sharedMemory.numAJobsSlaveA--;
@@ -25,7 +21,6 @@ public class MasterFromSlaveA extends Thread{
 				}
 			}
 		} catch (IOException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		} catch (ClassNotFoundException e) 
 		{

@@ -1,5 +1,5 @@
 package master;
-//c
+
 import job.Job;
 import job.JobType;
 
@@ -25,12 +25,14 @@ public class MasterDecideSlave  extends Thread{
 						//send to a
 						Master.sharedMemory.jobsToSendSlaveA.add(j);
 						Master.sharedMemory.numAJobsSlaveA++;
+						System.out.println("Chose to send " + j + " to Slave A");
 						Master.sharedMemory.jobsFromClients.poll();
 					} 
 					else{
 						//send to b
 						Master.sharedMemory.jobsToSendSlaveB.add(j);
 						Master.sharedMemory.numAJobsSlaveB++;
+						System.out.println("Chose to send " + j + " to Slave B");
 						Master.sharedMemory.jobsFromClients.poll();
 					}
 				}
@@ -39,12 +41,14 @@ public class MasterDecideSlave  extends Thread{
 						//send to b
 						Master.sharedMemory.jobsToSendSlaveB.add(j);
 						Master.sharedMemory.numBJobsSlaveB++;
+						System.out.println("Chose to send " + j + " to Slave B");
 						Master.sharedMemory.jobsFromClients.poll();
 					} 
 					else{
 						//send to a
 						Master.sharedMemory.jobsToSendSlaveA.add(j);
 						Master.sharedMemory.numBJobsSlaveA++;
+						System.out.println("Chose to send " + j + " to Slave A");
 						Master.sharedMemory.jobsFromClients.poll();
 					}
 				}

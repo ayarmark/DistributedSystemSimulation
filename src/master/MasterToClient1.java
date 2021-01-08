@@ -1,13 +1,9 @@
 package master;
-//c
+
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.net.UnknownHostException;
 
 import job.Job;
-import job.JobType;
 
 public class MasterToClient1 extends Thread{
 	public void run() {
@@ -18,7 +14,7 @@ public class MasterToClient1 extends Thread{
 				Job j = Master.sharedMemory.jobsToSendClient1.peek();
 				if( j !=null)
 				{
-					System.out.println("Sending Job " + j.getJobID() + " " + j.getJobType() + " back to Client.");
+					System.out.println("Sending " + j + " back to Client 1.");
 					SharedMemory.client1Out.writeObject(j);
 					Master.sharedMemory.jobsToSendClient1.poll();
 				}

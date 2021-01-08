@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import job.Job;
 import job.JobType;
-//c
+
 public class SlaveA {
 	
 	//by default the scope of this is package, only available to classes in slaveA package
@@ -40,8 +40,6 @@ public class SlaveA {
 		slaveAFromMaster.start();
 		
 		//send complete job back to master
-		//sends job back in SlaveAToMaster thread
-		
 		SlaveAToMaster slaveAToMaster = new SlaveAToMaster();
 		slaveAToMaster.start();
 		
@@ -61,16 +59,16 @@ public class SlaveA {
 					Thread.sleep(2000);
 					jobsToDo.peek().setFinished(true);
 					jobsFinished.add(jobsToDo.peek());
+					System.out.println("Completed " + jobsToDo.peek());
 					jobsToDo.poll();
-					System.out.println("Completed job type A");
 				} 
 				else 
 				{
 					Thread.sleep(10000);
 					jobsToDo.peek().setFinished(true);
 					jobsFinished.add(jobsToDo.peek());
+					System.out.println("Completed " + jobsToDo.peek());
 					jobsToDo.poll();
-					System.out.println("Completed job type B");
 				}
 			}
 			

@@ -1,11 +1,7 @@
 package client;
-//c
+
 import java.io.*;
 import java.net.*;
-import java.util.Random;
-
-import job.Job;
-import job.JobType;
 
 
 public class Client 

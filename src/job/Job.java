@@ -26,7 +26,7 @@ public class Job implements Serializable, Comparable<Job>{
 		return jobType;
 	}
 
-	public Integer getJobID() {//penina made this public
+	public Integer getJobID() {
 		return jobID;
 	}
 

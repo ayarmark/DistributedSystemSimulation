@@ -1,7 +1,6 @@
 package master;
-//c
+
 import job.Job;
-import job.JobType;
 
 public class MasterDecideClient extends Thread{
 	public void run() {
@@ -18,8 +17,7 @@ public class MasterDecideClient extends Thread{
 				System.out.println("Jobs to Send Client 2: "+Master.sharedMemory.jobsToSendClient2);
 				System.out.println();
 			    //choose client
-				if(j.getClientID() == 10) {
-					//send to client 1
+				if(j.getClientID() == 10) {//send to client 1
 					Master.sharedMemory.jobsToSendClient1.add(j);
 					Master.sharedMemory.jobsFromSlaves.poll();
 				}
