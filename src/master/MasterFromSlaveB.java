@@ -14,12 +14,13 @@ public class MasterFromSlaveB extends Thread{
 				System.out.println(returnedJob + " is complete.");
 				Master.sharedMemory.jobsFromSlaves.add(returnedJob);
 				if(returnedJob.getJobType().equals(JobType.A)) {
-					Master.sharedMemory.numAJobsSlaveA--;
+					Master.sharedMemory.numAJobsSlaveB--;
 				}
 				else {
-					Master.sharedMemory.numBJobsSlaveA--;
+					Master.sharedMemory.numBJobsSlaveB--;
 				}
 			}
+			SharedMemory.serverSocketWithSlaveB.close();
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		} catch (ClassNotFoundException e) 

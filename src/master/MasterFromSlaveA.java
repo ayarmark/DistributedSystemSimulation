@@ -20,6 +20,7 @@ public class MasterFromSlaveA extends Thread{
 					Master.sharedMemory.numBJobsSlaveA--;
 				}
 			}
+			SharedMemory.serverSocketWithSlaveA.close();
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		} catch (ClassNotFoundException e) 
