@@ -3,7 +3,7 @@ package master;
 import job.Job;
 import job.JobType;
 
-public class MasterDecideSlave  extends Thread{
+public class MasterDecideSlave extends Thread {
 	public void run() {
 		
 		while(this.isAlive())
@@ -24,7 +24,9 @@ public class MasterDecideSlave  extends Thread{
 					if(aBusy <= bBusy + 8){
 						//send to a
 						Master.sharedMemory.jobsToSendSlaveA.add(j);
+						synchronized (Master.sharedMemory){
 						Master.sharedMemory.numAJobsSlaveA++;
+						}
 						System.out.println("Chose to send " + j + " to Slave A");
 						Master.sharedMemory.jobsFromClients.poll();
 					} 
