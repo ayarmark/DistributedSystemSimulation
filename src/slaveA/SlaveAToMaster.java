@@ -5,7 +5,7 @@ import java.net.UnknownHostException;
 
 public class SlaveAToMaster extends Thread {
 	public void run() {
-		System.out.println("\n"+SlaveA.jobsFinished);
+		//System.out.println("\n"+SlaveA.jobsFinished);
 		try {
 			while (true) {
 

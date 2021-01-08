@@ -10,7 +10,7 @@ public class Client1FromMaster extends Thread{
 		
 		try {
 			Job returnedJob;
-			while((returnedJob = (Job) Client.in.readObject()) != null) {
+			while((returnedJob = (Job) Client1.in.readObject()) != null) {
 				System.out.println(returnedJob + " is complete.");
 			}
 		} catch (IOException e2) {

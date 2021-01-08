@@ -24,7 +24,7 @@ public class Client1CreateJobs extends Thread{
     	 	}
     		Job job = new Job(jobType, clientID);
     		System.out.println("User entered request for " + job);
-    		Client.jobsToDo.add(job);
+    		Client1.jobsToDo.add(job);
 		}
 		while(true);
 	}

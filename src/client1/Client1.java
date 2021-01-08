@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import job.Job;
 
 
-public class Client 
+public class Client1 
 {
 	static ConcurrentLinkedQueue<Job> jobsToDo = new ConcurrentLinkedQueue<Job>();
 	

@@ -10,7 +10,7 @@ public class MasterFromSlaveB extends Thread{
 		
 		try {
 			Job returnedJob;
-			while((returnedJob = (Job)SharedMemory.slaveAIn.readObject()) != null) {
+			while((returnedJob = (Job)SharedMemory.slaveBIn.readObject()) != null) {
 				System.out.println(returnedJob + " is complete.");
 				Master.sharedMemory.jobsFromSlaves.add(returnedJob);
 				if(returnedJob.getJobType().equals(JobType.A)) {
@@ -24,7 +24,7 @@ public class MasterFromSlaveB extends Thread{
 					}
 				}
 			}
-			SharedMemory.serverSocketWithSlaveA.close();
+			SharedMemory.serverSocketWithSlaveB.close();
 		} catch (IOException e2) {
 			e2.printStackTrace();
 		} catch (ClassNotFoundException e) 

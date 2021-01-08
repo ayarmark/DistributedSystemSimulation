@@ -10,10 +10,10 @@ public class Client1ToMaster extends Thread{
 		{	
 			while(this.isAlive())
 			{
-				if(!Client.jobsToDo.isEmpty()) 
+				if(!Client1.jobsToDo.isEmpty()) 
 				{
-					System.out.println("Sending " + Client.jobsToDo.peek() + " to master.");
-					Client.out.writeObject(Client.jobsToDo.poll());
+					System.out.println("Sending " + Client1.jobsToDo.peek() + " to master.");
+					Client1.out.writeObject(Client1.jobsToDo.poll());
 				}
 			}
 		}
